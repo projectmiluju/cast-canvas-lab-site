@@ -1,10 +1,23 @@
-import styles from './page.module.scss';
+import Header from '@/components/Header/Header';
+import Hero from '@/components/Hero/Hero';
+import Problem from '@/components/Problem/Problem';
+import Features from '@/components/Features/Features';
+import HowItWorks from '@/components/HowItWorks/HowItWorks';
+import Cta from '@/components/Cta/Cta';
+import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.title}>CastCanvas Lab</h1>
-      <p className={styles.subtitle}>Design system applied. Ready to build.</p>
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Problem />
+        <Features />
+        <HowItWorks />
+        <Cta />
+      </main>
+      <Footer />
+    </>
   );
 }
