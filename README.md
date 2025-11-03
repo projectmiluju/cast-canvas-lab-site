@@ -79,10 +79,19 @@ pnpm dev
 | 명령어 | 설명 |
 | --- | --- |
 | `pnpm dev` | 개발 서버 실행 |
-| `pnpm build` | 프로덕션 빌드 |
+| `pnpm build` | webpack 기반 정적 프로덕션 빌드 (`out/` 생성) |
 | `pnpm start` | 빌드 결과 실행 |
 | `pnpm lint` | ESLint 실행 |
 | `pnpm format` | Prettier 포맷 적용 |
+
+## 배포
+
+프로덕션 배포 권장 경로는 **S3 + CloudFront + Route 53 + ACM**입니다.
+
+- 프로덕션 도메인: `https://castcanvaslab.com`
+- 보조 도메인: `https://www.castcanvaslab.com` -> apex redirect
+
+이 프로젝트는 정적 사이트로 export되며, 실제 배포 절차와 DNS 연결 체크리스트는 [DEPLOYMENT.md](./DEPLOYMENT.md)에 정리되어 있습니다.
 
 ## 프로젝트 구조
 
