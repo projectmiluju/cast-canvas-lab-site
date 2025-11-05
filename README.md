@@ -93,6 +93,8 @@ pnpm dev
 
 이 프로젝트는 정적 사이트로 export되며, 실제 배포 절차와 DNS 연결 체크리스트는 [DEPLOYMENT.md](./DEPLOYMENT.md)에 정리되어 있습니다.
 
+GitHub Actions 자동 배포는 `.github/workflows/deploy.yml`에 포함되어 있으며, `main` 브랜치 push 시 S3 sync와 CloudFront invalidation이 실행됩니다.
+
 ## 프로젝트 구조
 
 ```text
@@ -108,6 +110,13 @@ public/                  # 정적 에셋
 ```
 
 현재는 App Router 기반의 단일 랜딩 구조이며, 공개 문서와 제품 소개 페이지를 점진적으로 확장하는 방향을 전제로 합니다.
+
+## GitHub Secrets
+
+자동 배포를 사용하려면 아래 시크릿이 필요합니다.
+
+- `AWS_DEPLOY_ROLE_ARN`
+- `AWS_CLOUDFRONT_DISTRIBUTION_ID`
 
 ## 협업 규칙
 

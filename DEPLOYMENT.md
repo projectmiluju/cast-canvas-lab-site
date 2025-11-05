@@ -235,6 +235,35 @@ aws s3 sync out/ s3://castcanvaslab.com --delete
 aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 ```
 
+## GitHub Actions Automation
+
+This repository includes:
+
+- `.github/workflows/deploy.yml`
+
+Trigger:
+
+- push to `main`
+- manual run via `workflow_dispatch`
+
+Required GitHub Secrets:
+
+- `AWS_DEPLOY_ROLE_ARN`
+  - IAM role assumed by GitHub Actions through OIDC
+- `AWS_CLOUDFRONT_DISTRIBUTION_ID`
+  - production distribution ID for `castcanvaslab.com`
+
+Recommended AWS setup for GitHub Actions:
+
+1. create an IAM role for GitHub OIDC
+2. trust the GitHub repository
+3. grant:
+   - `s3:ListBucket`
+   - `s3:PutObject`
+   - `s3:DeleteObject`
+   - `cloudfront:CreateInvalidation`
+4. store the role ARN and distribution ID in repository secrets
+
 ## SEO Notes
 
 This approach is SEO-safe for the current site because:
@@ -246,8 +275,6 @@ This approach is SEO-safe for the current site because:
 Still recommended:
 
 - add a real OG image asset
-- add `robots.txt`
-- add `sitemap.xml`
 - connect Search Console after domain activation
 
 ## Future Architecture Guidance
