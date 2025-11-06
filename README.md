@@ -118,6 +118,10 @@ public/                  # 정적 에셋
 - `AWS_DEPLOY_ROLE_ARN`
 - `AWS_CLOUDFRONT_DISTRIBUTION_ID`
 
+선택적으로 Search Console 검증 메타를 넣으려면 빌드 시 아래 환경변수를 사용할 수 있습니다.
+
+- `GOOGLE_SITE_VERIFICATION`
+
 ## 협업 규칙
 
 - 커밋 메시지는 [Conventional Commits](https://www.conventionalcommits.org/) 형식을 사용하며 `commit-msg`에서 `commitlint`로 검사합니다.
