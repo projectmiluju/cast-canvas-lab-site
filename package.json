@@ -8,13 +8,19 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "lint:staged": "lint-staged",
-    "prepare": "husky"
+    "format:check": "prettier --check .",
+    "check:branch": "node scripts/check-branch-name.mjs",
+    "check:no-secrets": "node scripts/check-no-secrets.mjs",
+    "prepare": "husky",
+    "typecheck": "tsc -b --noEmit --pretty false"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,css,scss,json}": [
-      "prettier --write",
-      "eslint --fix"
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --max-warnings=0 --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,html,md,yml,yaml}": [
+      "prettier --write"
     ]
   },
   "dependencies": {
@@ -35,6 +41,6 @@
     "lint-staged": "^16.3.2",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
-    "typescript": "^5"
+    "typescript": "~5.9.3"
   }
 }
