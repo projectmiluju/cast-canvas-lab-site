@@ -1,6 +1,5 @@
-.next
 node_modules
-public
-package-lock.json
+dist
+build
+.next
 pnpm-lock.yaml
-yarn.lock
