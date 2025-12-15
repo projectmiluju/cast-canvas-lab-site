@@ -41,6 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 .codex/
+.claude/
+.gemini/
 CLAUDE.md
 STATUS.md
 docs/*
