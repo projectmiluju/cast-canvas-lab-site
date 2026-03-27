@@ -2,71 +2,97 @@
 
 .section {
   @include section;
+  background: var(--color-bg-app);
 }
 
 .inner {
   @include container;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  gap: var(--space-12);
+}
+
+.heading {
+  max-width: 56ch;
 }
 
 .title {
+  margin: 0 0 var(--space-4);
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
 
-  @include md {
+  @include lg {
     font-size: var(--font-size-4xl);
   }
 }
 
 .subtitle {
-  margin-top: var(--space-4);
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  margin: 0;
+  font-size: var(--font-size-xl);
   line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
-  margin-top: var(--space-12);
-  width: 100%;
+  gap: var(--space-4);
 
-  @include sm {
+  @include md {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include lg {
+  @include xl {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .card {
-  @include surface;
-  padding: var(--space-8) var(--space-6);
-  text-align: left;
-  transition: box-shadow var(--transition-normal);
+  padding: var(--space-6);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
 
   &:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-strong);
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-4);
+  background: var(--palette-primary-50);
+  border-radius: var(--radius-md);
+  color: var(--color-interactive-primary);
+
+  [data-theme='dark'] & {
+    background: rgba(99, 102, 241, 0.12);
   }
 }
 
 .cardTitle {
-  font-size: var(--font-size-xl);
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
+  line-height: var(--line-height-snug);
 }
 
 .cardDesc {
-  margin-top: var(--space-3);
+  margin: 0;
   font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
   color: var(--color-text-secondary);
-  line-height: var(--line-height-normal);
 }
