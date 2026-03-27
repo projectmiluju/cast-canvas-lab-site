@@ -48,6 +48,25 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-noto-sans-kr, var(--font-display));
+  word-break: keep-all;
+}
+
+p,
+li,
+a,
+button,
+input,
+label {
+  word-break: keep-all;
+}
+
 // Dark mode color-scheme
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
