@@ -26,7 +26,19 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoMark} aria-hidden="true" />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            className={styles.logoMark}
+          >
+            <rect width="32" height="32" rx="8" fill="#4F46E5" />
+            <rect x="6" y="6" width="12" height="12" rx="2" fill="white" fillOpacity="0.9" />
+            <rect x="14" y="14" width="12" height="12" rx="2" fill="white" fillOpacity="0.5" />
+          </svg>
           CastCanvas Lab
         </Link>
 
